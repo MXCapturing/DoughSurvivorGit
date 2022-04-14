@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592268128}
   - component: {fileID: 592268130}
+  - component: {fileID: 592268129}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -237,6 +238,24 @@ Transform:
   m_Father: {fileID: 1247379734}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592268129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592268127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0c538351d8a254abc0ac1ecd14b307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.1
+  bullet: {fileID: 3650574331429705708, guid: 7b35abc8a4e7206479dd4a002cde20e1, type: 3}
+  offsetMax: 10
+  offsetIncreaseRate: 2
+  offsetDecreaseRate: 5
+  straightShotTimer: 0
 --- !u!212 &592268130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -298,7 +317,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1247379734}
   - component: {fileID: 1247379735}
-  - component: {fileID: 1247379736}
   m_Layer: 0
   m_Name: AimCircle
   m_TagString: Untagged
@@ -334,19 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
---- !u!114 &1247379736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247379733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0c538351d8a254abc0ac1ecd14b307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireRate: 3
 --- !u!1 &1615168338
 GameObject:
   m_ObjectHideFlags: 0
