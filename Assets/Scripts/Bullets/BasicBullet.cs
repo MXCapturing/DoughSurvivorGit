@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour
+public class BasicBullet : MonoBehaviour, IBullets
 {
     public float travelDistance;
     public int damage;
     public float travelTime;
     float travelSpeed;
+
+    public int pierceNumber;
+
+    public float TravelDistance {get => TravelDistance; set => travelDistance = value; }
+    public int Damage { get => Damage; set => damage = value; }
+    public float TravelTime { get => TravelTime; set => travelTime = value; }
 
 
     // Start is called before the first frame update
@@ -32,7 +38,16 @@ public class BasicBullet : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            
+            IDamageable hit = col.GetComponent<IDamageable>();
+            if(hit != null)
+            {
+                hit.Damage(damage);
+                pierceNumber--;
+                if(pierceNumber <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 }

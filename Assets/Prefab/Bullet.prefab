@@ -48,6 +48,7 @@ MonoBehaviour:
   travelDistance: 30
   damage: 5
   travelTime: 2
+  pierceNumber: 3
 --- !u!212 &4291289256838144509
 SpriteRenderer:
   m_ObjectHideFlags: 0
