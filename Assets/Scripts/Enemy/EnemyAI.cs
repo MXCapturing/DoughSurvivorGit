@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour, IDamageable
 {
+    public float speed;
     public int _health;
+    GameObject target;
+    public float targetDistance;
+    Rigidbody2D _rb;
+
+    public int damage;
+    public float timeBetweenDamage;
+    float damageTimer;
     
     public int Health
     {
@@ -18,6 +26,38 @@ public class EnemyAI : MonoBehaviour, IDamageable
         if(_health <= 0)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    void Start()
+    {
+        targetDistance = 3.75f;
+        _rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Core");
+        damageTimer = timeBetweenDamage;
+    }
+
+    void FixedUpdate()
+    {
+        if(Vector2.Distance(transform.position, target.transform.position) > targetDistance)
+        {
+            Vector2 newPosition = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+            _rb.MovePosition(newPosition);
+        }
+        else
+        {
+            DoDamage();
+        }
+    }
+
+    void DoDamage()
+    {
+        damageTimer -= Time.deltaTime;
+        if (damageTimer <= 0)
+        {
+            target.GetComponent<IDamageable>().Damage(damage);
+            damageTimer = timeBetweenDamage;
+            Debug.Log(transform.name + " Damage: " + damage);
         }
     }
 }
