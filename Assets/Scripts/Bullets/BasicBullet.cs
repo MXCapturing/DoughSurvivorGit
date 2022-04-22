@@ -19,6 +19,8 @@ public class BasicBullet : MonoBehaviour, IBullets
     // Start is called before the first frame update
     void Start()
     {
+        int intDamage = (int)Character.instance.Damage.Value;
+        damage = intDamage;
         travelSpeed = travelDistance / travelTime;
         Invoke("Destroy", travelTime);
     }

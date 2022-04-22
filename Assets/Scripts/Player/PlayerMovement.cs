@@ -23,19 +23,19 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        accelRatePerSec = maxMoveSpeed / timeZeroToMax;
-        decelRatePerSec = -maxMoveSpeed / timeMaxToZero;
+        /* = maxMoveSpeed / timeZeroToMax;
+        decelRatePerSec = -maxMoveSpeed / timeMaxToZero;*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        accelRatePerSec = maxMoveSpeed / timeZeroToMax;
+        decelRatePerSec = -maxMoveSpeed / timeMaxToZero;
         if (canMove)
         {
             MoveUpdate();
         }
-        accelRatePerSec = maxMoveSpeed / timeZeroToMax;
-        decelRatePerSec = -maxMoveSpeed / timeMaxToZero;
     }
 
     void MoveUpdate()

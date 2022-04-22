@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public int damage;
     public float timeBetweenDamage;
     float damageTimer;
+
+    public int expValue;
     
     public int Health
     {
@@ -23,10 +25,23 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public void Damage(int damage)
     {
         _health -= damage;
+        Flicker();
         if(_health <= 0)
         {
+            Character.instance.Exp.AddModifier(new StatModifier(expValue, StatModType.Flat));
             Destroy(this.gameObject);
         }
+    }
+
+    void Flicker()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("FlickOff", 0.1f);
+    }
+
+    void FlickOff()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     void Start()
