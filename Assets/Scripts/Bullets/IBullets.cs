@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IBullets
 {
-    float TravelDistance { get; set; }
+    float TravelSpeed { get; set; }
     int Damage { get; set; }
     float TravelTime { get; set; }
 }

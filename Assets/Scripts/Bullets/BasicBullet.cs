@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class BasicBullet : MonoBehaviour, IBullets
 {
-    public float travelDistance;
     public int damage;
     public float travelTime;
-    float travelSpeed;
+    public float travelSpeed;
 
     public int pierceNumber;
 
-    public float TravelDistance {get => TravelDistance; set => travelDistance = value; }
+    public float TravelSpeed {get => TravelSpeed; set => travelSpeed = value; }
     public int Damage { get => Damage; set => damage = value; }
     public float TravelTime { get => TravelTime; set => travelTime = value; }
 
@@ -19,9 +18,9 @@ public class BasicBullet : MonoBehaviour, IBullets
     // Start is called before the first frame update
     void Start()
     {
+        travelSpeed += Character.instance.Speed.Value;
         int intDamage = (int)Character.instance.Damage.Value;
         damage = intDamage;
-        travelSpeed = travelDistance / travelTime;
         Invoke("Destroy", travelTime);
     }
 

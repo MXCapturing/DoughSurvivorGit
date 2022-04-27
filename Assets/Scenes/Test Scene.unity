@@ -676,6 +676,8 @@ MonoBehaviour:
     BaseValue: 15
   Exp:
     BaseValue: 0
+  Speed:
+    BaseValue: 5
 --- !u!114 &872919667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   currentMoveSpeed: 0
-  maxMoveSpeed: 5
+  maxMoveSpeed: 0
   timeZeroToMax: 0.1
   timeMaxToZero: 0.1
 --- !u!212 &1615168342

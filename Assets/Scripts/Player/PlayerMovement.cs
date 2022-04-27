@@ -23,8 +23,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        /* = maxMoveSpeed / timeZeroToMax;
-        decelRatePerSec = -maxMoveSpeed / timeMaxToZero;*/
+        SetSpeed();
+    }
+
+    void SetSpeed()
+    {
+        maxMoveSpeed = Character.instance.Speed.Value;
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             MoveUpdate();
+            SetSpeed();
         }
     }
 

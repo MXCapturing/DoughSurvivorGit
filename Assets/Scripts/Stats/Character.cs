@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
 
     public CharacterStat Damage;
     public CharacterStat Exp;
+    public CharacterStat Speed;
 
     private void Awake()
     {
