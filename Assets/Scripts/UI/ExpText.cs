@@ -5,10 +5,29 @@ using UnityEngine.UI;
 
 public class ExpText : MonoBehaviour
 {
-    public Text expBox;
-    // Update is called once per frame
-    void Update()
+    public Image expBox;
+    private PlayerExp playerExp;
+
+    public float minEXP;
+    public float maxEXP;
+    public float expPercentage;
+
+    private void Start()
     {
-        expBox.text = Character.instance.Exp.Value.ToString();
+        playerExp = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerExp>();
+        UpdateEXP();
+    }
+    // Update is called once per frame
+    private void Update()
+    {
+        expPercentage = playerExp.level.experience / maxEXP;
+        Debug.Log(expPercentage);
+        //Lurp this so it's smoother animation
+        expBox.fillAmount = expPercentage;
+    }
+
+    public void UpdateEXP()
+    {
+        maxEXP = playerExp.level.GetEXPRequired(playerExp.level.currentLevel + 1);
     }
 }

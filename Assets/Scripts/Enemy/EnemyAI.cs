@@ -28,7 +28,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
         Flicker();
         if(_health <= 0)
         {
-            Character.instance.Exp.AddModifier(new StatModifier(expValue, StatModType.Flat));
+            //Character.instance.Exp.AddModifier(new StatModifier(expValue, StatModType.Flat));
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerExp>().level.AddExp(expValue);
             Destroy(this.gameObject);
         }
     }
