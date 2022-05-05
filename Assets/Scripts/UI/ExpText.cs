@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ExpText : MonoBehaviour
 {
-    public Image expBox;
+    public Slider expBox;
     private PlayerExp playerExp;
 
     public float minEXP;
@@ -20,14 +20,16 @@ public class ExpText : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        expPercentage = playerExp.level.experience / maxEXP;
+        expPercentage = playerExp.level.experience;
         Debug.Log(expPercentage);
         //Lurp this so it's smoother animation
-        expBox.fillAmount = expPercentage;
+        expBox.value = expPercentage;
     }
 
     public void UpdateEXP()
     {
-        maxEXP = playerExp.level.GetEXPRequired(playerExp.level.currentLevel + 1);
+        maxEXP = playerExp.level.GetEXPRequired(playerExp.level.currentLevel + 2);
+        Debug.Log(maxEXP);
+        expBox.maxValue = maxEXP;
     }
 }

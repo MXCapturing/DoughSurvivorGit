@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour, IDamageable
 {
@@ -15,6 +16,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
     float damageTimer;
 
     public int expValue;
+
+    public Slider hpBar;
     
     public int Health
     {
@@ -25,6 +28,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public void Damage(int damage)
     {
         _health -= damage;
+        hpBar.value = _health;
         Flicker();
         if(_health <= 0)
         {
@@ -51,6 +55,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
         _rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Core");
         damageTimer = timeBetweenDamage;
+        hpBar.maxValue = _health;
+        hpBar.value = _health;
     }
 
     void FixedUpdate()
