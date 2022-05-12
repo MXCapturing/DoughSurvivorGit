@@ -17,12 +17,14 @@ public class BulletShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fireRate = Character.instance.FireRate.Value;
         fireTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        fireRate = Character.instance.FireRate.Value;
         if (Input.GetMouseButton(0))
         {
             OffsetUp();

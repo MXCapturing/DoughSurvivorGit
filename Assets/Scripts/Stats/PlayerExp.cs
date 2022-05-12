@@ -20,5 +20,6 @@ public class PlayerExp : MonoBehaviour
         level.experience = 0;
         level.experience = (oldEXP - newEXP);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<ExpText>().UpdateEXP();
+        GameManager.instance.LevelUpOn();
     }
 }
